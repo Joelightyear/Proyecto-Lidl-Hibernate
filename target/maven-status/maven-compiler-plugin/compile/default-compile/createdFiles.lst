@@ -1,0 +1,9 @@
+bd\MysqlConnect.class
+classes\GestorProductos.class
+classes\GestorUsuarios.class
+org\empleodigital\struts\Lidl\actions\HelloAction.class
+org\empleodigital\struts\Lidl\jpa\Cliente.class
+org\empleodigital\struts\Lidl\actions\Index.class
+org\empleodigital\struts\Lidl\actions\ListadoAction.class
+org\empleodigital\struts\Lidl\actions\RegisterAction.class
+org\empleodigital\struts\Lidl\actions\LoginAction.class
