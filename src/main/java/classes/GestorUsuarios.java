@@ -1,6 +1,7 @@
 package classes;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,7 +15,9 @@ import bd.MysqlConnect;
 public class GestorUsuarios {
 	private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
             .createEntityManagerFactory("JavaHelps");
-
+	
+	/*
+	//MÉTODO STRUTS 2 (LOGIN)
 	public static boolean usuarioExiste(String usuario, String contrasena) {
 		
 		MysqlConnect c = MysqlConnect.getDbCon();
@@ -33,9 +36,46 @@ public class GestorUsuarios {
 		}
 		
 		return false;
-	}
+	}*/
+	
+	
+	//MÉTODO HIBERNATE (LOGIN)
+	public static Cliente loginUsuario(String usuario, String contrasena) {
+		
+		Cliente cliente = null;
 
-	//Método normal de Struts
+        // Create an EntityManager
+        EntityManager manager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction transaction = null;
+
+        try {
+            // Get a transaction
+            transaction = manager.getTransaction();
+            // Begin the transaction
+            transaction.begin();
+
+            // Get a List of Students
+            cliente = manager.createQuery(("FROM Cliente WHERE usuario = '"+usuario+"' and contrasena = '"+contrasena+"'"),
+                    Cliente.class).getSingleResult();
+
+            // Commit the transaction
+            transaction.commit();
+        } catch (Exception ex) {
+            // If there are any exceptions, roll back the changes
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            // Print the Exception
+            ex.printStackTrace();
+        } finally {
+            // Close the EntityManager
+            manager.close();
+        }
+        return cliente;
+    }
+		
+
+	//Método STRUTS 2 (REGISTRO)
 	/*public static boolean usuarioExiste(String usuario, String contrasena, String nombre, int edad) {
 		MysqlConnect c = MysqlConnect.getDbCon();
 		ResultSet rs = null;
@@ -51,6 +91,7 @@ public class GestorUsuarios {
 		return false;
 	}*/
 	
+	//MÉTODO HIBERNATE (REGISTRO)
 	public static boolean nuevoUsuario(String nombre, int edad, String usuario,  int contrasena){
 			
 		 // Create an EntityManager
@@ -88,6 +129,7 @@ public class GestorUsuarios {
         }
 		return false;
     }
+	
 	}
 	
 

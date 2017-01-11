@@ -30,7 +30,8 @@ ha accedido a su cuenta</h5></div>
     <div class="row text-center">
            <s:a action="listado"><button type="button" class="btn btn-circle">Ver productos <span class="glyphicon glyphicon-th-list"></span></button></s:a> 
            <s:a><button type="button" class="btn btn-circle">Ir a la Cesta <br>  <span class="glyphicon glyphicon-shopping-cart"></span></button></s:a>    
-           <a href="index.jsp"><button id="botoncerrarsesion" type="button" class="btn btn-circle">Cerrar Sesión <br><span class="glyphicon glyphicon-log-in"></span></button></a> 
+           <a href="index.jsp"><button id="botoncerrarsesion" type="button" class="btn btn-circle">Cerrar Sesión <br><span class="glyphicon glyphicon-log-in"></span></button></a>
+           <s:a action="borrarusuario"><button type="button" class="btn btn-circle">Borrar Usuario <br><span class="glyphicon glyphicon-user"></span><span class="glyphicon glyphicon-remove"></span></button></s:a> 
     </div>
     
 </div>

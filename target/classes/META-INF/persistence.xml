@@ -8,7 +8,9 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- Entity classes -->
-		<class>com.javahelps.jpa.Student</class>
+		<class>org.empleodigital.struts.Lidl.jpa.Cliente</class>
+		<class>org.empleodigital.struts.Lidl.jpa.Producto</class>
+		<class>org.empleodigital.struts.Lidl.jpa.Pedido</class>
 
 		<properties>
 			<!-- The JDBC driver of your database -->
@@ -22,6 +24,7 @@
 
 			<!-- The database password -->
 			<property name="javax.persistence.jdbc.password" value="badajoz" />
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
 	</persistence-unit>
 </persistence>

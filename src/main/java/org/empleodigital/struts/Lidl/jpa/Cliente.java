@@ -1,10 +1,12 @@
 package org.empleodigital.struts.Lidl.jpa;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +29,9 @@ public class Cliente implements Serializable{
     
     @Column(name = "contrasena", nullable = false)
     private int contrasena;
+    
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos;
 
 	public int getId() {
 		return id;
@@ -67,6 +72,21 @@ public class Cliente implements Serializable{
 	public void setContrasena(int contrasena) {
 		this.contrasena = contrasena;
 	}
-    
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", usuario=" + usuario + ", contrasena="
+				+ contrasena + ", pedidos=" + pedidos + "]";
+	}
+
+	
     
 }

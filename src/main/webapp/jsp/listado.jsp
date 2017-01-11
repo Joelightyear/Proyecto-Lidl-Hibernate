@@ -40,16 +40,14 @@
 
 		</div>
 	</div>
-	<div class="container-fluid"></div>
-
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<s:iterator status="stat" value="pro">
 				<s:if test="(#stat.index % 3==0)">
 					<div class="row"></div>
 				</s:if>
-				<div class="col-md-4 text-center">
-					<img class="col-md-12 text-center" alt="" src='img/<s:property value="imagen" />'>
+				<div class="col-sm-4 text-center">
+					<img class="col-sm-12 text-center" alt="" src='img/<s:property value="imagen" />'>
 					<br> <b>PRODUCTO:</b>
 					<s:property value="nombre" />
 					<br> <b>PRECIO: </b>

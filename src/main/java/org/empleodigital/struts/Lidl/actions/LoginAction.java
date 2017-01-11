@@ -1,5 +1,7 @@
 package org.empleodigital.struts.Lidl.actions;
 
+import org.empleodigital.struts.Lidl.jpa.Cliente;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import classes.GestorUsuarios;
@@ -29,13 +31,25 @@ public class LoginAction extends ActionSupport{
 		this.contrasena = contrasena;
 	}
 
-
-	public String execute() throws Exception{
+	//Método STRUTS 2
+	/*public String execute() throws Exception{
 		if (GestorUsuarios.usuarioExiste(usuario, contrasena)) {
 			return SUCCESS;
 		} else {
 			return ERROR;	
 		}
 		
-	}
+	}*/
+	
+	//Método HIBERNATE
+	public String execute() throws Exception{
+		
+		Cliente cli = GestorUsuarios.loginUsuario(usuario, contrasena);
+		
+		if (cli!=null) {
+			return SUCCESS;
+		} else {
+			return ERROR;	
+		}
+}
 }
